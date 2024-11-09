@@ -1,4 +1,3 @@
-![Banner](Images/banner.png)
 
 # EeveeSpotify
 
