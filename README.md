@@ -30,32 +30,4 @@ EeveeSpotify replaces Spotify monthly limited lyrics with one of the following t
 
 If the tweak is unable to find a song or process the lyrics, you'll see a "Couldn't load the lyrics for this song" message. The lyrics might be wrong for some songs when using Genius due to how the tweak searches songs. While I've made it work in most cases, kindly refrain from opening issues about it.
 
-## How It Works
-
-**Starting with version 4.0, EeveeSpotify intercepts Spotify requests to load user data, deserializes it, and modifies the parameters in real-time. This method is the best so far and works incredibly stable.**
-
-Upon login, Spotify fetches user data and caches it in the `offline.bnk` file in the `/Library/Application Support/PersistentCache` directory. It uses its proprietary binary format to store data, incorporating a length byte before each value, among other conventions. Certain keys, such as `player-license`, `financial-product`, `streaming-rules`, and others, determine the user abilities.
-
-The tweak patches this file while initializing; Spotify loads it and assumes you have Premium. To be honest, it doesn't really patch due to challenges with dynamic length and varied bytes. The tweak extracts the username from the current `offline.bnk` file and inserts it into `premiumblank.bnk` (a file containing all premium values preset), replacing `offline.bnk`. Spotify may reload user data, and you'll be switched to the Free plan. When this happens, you'll see a popup with quick restart app and reset data actions.
-
-![Hex](Images/hex.png)
-
-Tweak also sets `trackRowsEnabled` in `SPTFreeTierArtistHubRemoteURLResolver` to `true`, so Spotify loads not just track names on the artist page. It can stop working just like Spotilife, but so far, it works on the latest Spotify 8.9.## (Spotilife also patches `offline.bnk`, however, it changes obscure bytes that do nothing on new versions). 
-
-## Support
-
-EeveeSpotify has always been free and open-source project. However, I started accepting crypto donations if you'd like to support me. This will help me pay for a good monthly VPS and continue creating cool things. I really appreciate it:
-
-USDT (TRC-20): `TJppx7dvTa2ndoVcQ1jxWkvGN1vEuFHssJ`
-
-USDC/ETH/USDT: `0x98bbd1541cb9a8ebb1229741218886efba963677`
-
-BTC: `bc1q230f0jaryxhrr03v8knxew30p7l4kwefd6d4nl`
-
-LTC: `ltc1qhj3ts8ek0lklqfydxu90ku5d5efq5cw5ww7u9g`
-
-XMR: `86QVbA9XLJ9WznTDRgA7dbf8UV9rsR5KB1UxJCPtdwQqd9rv9YZNRkTJvesGzM13khL9Do1BRb5biUTuDZ5YqnuQF8JrJYk`
-
-***
-
-To open Spotify links in sideloaded app, use [OpenSpotifySafariExtension](https://github.com/BillyCurtis/OpenSpotifySafariExtension). Remember to activate it and allow access in Settings > Safari > Extensions.
+EeveeSpotify has always been free and open-source project.
